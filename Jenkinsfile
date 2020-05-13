@@ -20,7 +20,7 @@ node {
     def resourceGroup = 'myResourceGroup' 
     def webAppName = 'testappqiagen'
     // login Azure
-    withCredentials([azureServicePrincipal('7480edc2-5590-40b8-b46c-1dff9b6dd061')]) {
+    withCredentials([azureServicePrincipal('azure_service_principal')]) {
       sh '''
         az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
         az account set -s $AZURE_SUBSCRIPTION_ID
